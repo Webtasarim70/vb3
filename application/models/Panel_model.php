@@ -13,28 +13,28 @@ class Panel_model extends CI_Model {
     }
 
     public function get($where){
-        $result = $this->db->where($where)->get('personel')->row();
+        $result = $this->db->where($where)->get('videolar')->row();
         return $result;
     }
 
     public function insert($data){
-       $insert = $this->db->insert('personel', $data);
+       $insert = $this->db->insert('videolar', $data);
        return $insert;
     }
 
     public function update($where, $data){
-        $update = $this->db->where($where)->update('personel',$data);
+        $update = $this->db->where($where)->update('videolar',$data);
         return $update;
 
     }
 
     public function delete($where){
-        $delete = $this->db->where($where)->delete('personel');
+        $delete = $this->db->where($where)->delete('videolar');
         return $delete;
     }
 
     public function order_by($field= 'id' , $order ='ASC'){
-        $result = $this->db->order_by($field, $order)->get('personel')->result();
+        $result = $this->db->order_by($field, $order)->get('videolar')->result();
         return $result;
 
     }
