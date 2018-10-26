@@ -40,7 +40,7 @@
       </div>
       <!-- /.box -->
 
- <div class="box">
+       <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
             </div>
@@ -81,9 +81,6 @@
             </div>
             <!-- /.box-body -->
           </div>
-
-
-
 
     </section>
     <!-- /.content -->
