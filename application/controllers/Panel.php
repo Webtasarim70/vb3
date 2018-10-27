@@ -48,8 +48,13 @@ class Panel extends CI_Controller {
 	{
 		$where = array('video_id' => $id);
 		$data =array(
-			'personel_ad' => $this->input->post('personel_ad'),
-			'img_id'     =>  $this->upload->data('file_name')
+			'video_baslik' => $this->input->post('video_baslik'),
+			'video_sahibi' => $this->input->post('video_sahibi'),
+			'video_resim' => $this->input->post('video_resim'),
+			'video_aciklama' => $this->input->post('video_aciklama'),
+			'video_etiketler' => $this->input->post('video_etiketler'),
+			'video_durum' => $this->input->post('video_durum'),
+			'video_tavsiye' => $this->input->post('video_tavsiye'),
 		);
 
 		$update=$this->Panel_model->update($where, $data);
@@ -68,11 +73,12 @@ class Panel extends CI_Controller {
 				'icon'     =>'ban',
 				'type'     =>'danger'
 			);
-
-			$this->session->set_flashdata('alert', $alert);
-			redirect(base_url('panel/video'));
 		}
-	}
+
+        $this->session->set_flashdata('alert', $alert);
+        redirect(base_url('panel/video'));
+
+    }
 
 
 

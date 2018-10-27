@@ -23,7 +23,7 @@
         <div class="box box-primary">
 
           <!-- form start -->
-          <form role="form" action="<?php echo base_url('panel/update'); ?>" method="POST">
+          <form role="form" action="<?php echo base_url('panel/update/'); echo $list->video_id; ?>" method="POST">
             <div class="box-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Video Başlığı</label>

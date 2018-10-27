@@ -39,4 +39,11 @@ class Panel_model extends CI_Model {
 
     }
 
+    public function rowcount($where, $table_name){
+        $result= $this->db->where($where)->count_all_results( $table_name);
+        return $result;
+    }
+
+
+
 }
