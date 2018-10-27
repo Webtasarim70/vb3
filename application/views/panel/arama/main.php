@@ -58,8 +58,8 @@
              <td><?php echo $baslik; ?></td>
              <td><a href="https://www.youtube.com/watch?v=<?php echo $id; ?>"><?php echo $id; ?> </a></td>
              <td><?php echo $sahibi; ?></td>
-             <td><a href="<?php echo base_url('panel/video_form/'); echo $row->video_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
-              <a href="<?php echo base_url('panel/delete/'); echo $row->video_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
+             <td><a href="<?php echo base_url('panel/video_ekle/'); echo $id; ?>" name="video_ekle" class="btn btn-primary btn-sm"> Siteme Ekle! </a>
+              </td>
             </tr>
           <?php } ?>               
         </tbody>

@@ -75,14 +75,14 @@ class Panel extends CI_Controller {
 			);
 		}
 
-        $this->session->set_flashdata('alert', $alert);
-        redirect(base_url('panel/video'));
+		$this->session->set_flashdata('alert', $alert);
+		redirect(base_url('panel/video'));
 
-    }
+	}
 
 	public function video_bak($q)
 	{
-       $apikey= $this->Panel_model->get_apikey();
+		$apikey= $this->Panel_model->get_apikey();
 
 	// $apikey = 'AIzaSyCM5jaVAHWTEnCvu0SbF1yenwuQedevmAc';
 
@@ -93,15 +93,24 @@ class Panel extends CI_Controller {
 
 
 
-                    $response=file_get_contents($searchUrl);
-                    $list=json_decode($response,true);
+		$response=file_get_contents($searchUrl);
+		$list=json_decode($response,true);
 
                      //echo "<pre>"; print_r($searchResponse); echo "<pre>";
 
-                    $viewData['list']=$list;
-					$this->load->view('panel/aramaliste', $viewData);
+		$viewData['list']=$list;
+		$this->load->view('panel/aramaliste', $viewData);
 
 	}
+
+	public function video_ekle($id) 
+	{
+		$id= $this->input->post('id');
+		echo($id);
+
+	}
+
+
 
 
 //class sonu
