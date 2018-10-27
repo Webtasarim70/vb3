@@ -80,6 +80,28 @@ class Panel extends CI_Controller {
 
     }
 
+	public function video_bak($q)
+	{
+       $apikey= $this->Panel_model->get_apikey();
+
+	// $apikey = 'AIzaSyCM5jaVAHWTEnCvu0SbF1yenwuQedevmAc';
+
+		$q= $this->input->post('video_bak');
+		$q=preg_replace('/ /','+' ,$q);
+
+		$searchUrl="https://www.googleapis.com/youtube/v3/search?part=snippet&q=".$q."&type=video&key=".$apikey."&maxResults=50";
+
+
+
+                    $response=file_get_contents($searchUrl);
+                    $list=json_decode($response,true);
+
+                     //echo "<pre>"; print_r($searchResponse); echo "<pre>";
+
+                    $viewData['list']=$list;
+					$this->load->view('panel/aramaliste', $viewData);
+
+	}
 
 
 //class sonu

@@ -4,10 +4,10 @@ class Panel_model extends CI_Model {
 
     public function index()
     {
-       
+
     }
 
-  public function get_all(){
+    public function get_all(){
         $result = $this->db->order_by('video_id','DESC')->get('videolar')->result();
         return $result;
     }
@@ -20,11 +20,11 @@ class Panel_model extends CI_Model {
     public function insert($data){
        $insert = $this->db->insert('videolar', $data);
        return $insert;
-    }
+   }
 
-    public function update($where, $data){
-        $update = $this->db->where($where)->update('videolar',$data);
-        return $update;
+   public function update($where, $data){
+    $update = $this->db->where($where)->update('videolar',$data);
+    return $update;
 
     }
 
@@ -44,6 +44,10 @@ class Panel_model extends CI_Model {
         return $result;
     }
 
+    public function get_apikey(){
+        $result = $this->db->where('ayar_id',1 )->get('ayarlar')->row()->site_apikey;
+        return $result;
+    }
 
 
 }
