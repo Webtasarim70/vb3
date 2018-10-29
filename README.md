@@ -1,3 +1,4 @@
 # vb3
+## video blog 
+CodeIgniter, boostrap tabanlı proje, youtube dataapi,  adminlte, zKoolTube 
 
-CodeIgniter, boostrap tabanlı proje

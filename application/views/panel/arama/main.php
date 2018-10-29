@@ -24,10 +24,6 @@
       </div>
     <?php } ?>
 
-
-
-
-
     <!-- Main content -->
     <section class="content">
      <div class="box">

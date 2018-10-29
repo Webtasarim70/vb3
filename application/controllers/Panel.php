@@ -96,7 +96,7 @@ class Panel extends CI_Controller {
 		$response=file_get_contents($searchUrl);
 		$list=json_decode($response,true);
 
-                     //echo "<pre>"; print_r($searchResponse); echo "<pre>";
+                     //echo "<pre>"; print_r($list); echo "<pre>";
 
 		$viewData['list']=$list;
 		$this->load->view('panel/aramaliste', $viewData);
