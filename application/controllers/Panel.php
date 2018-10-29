@@ -83,9 +83,6 @@ class Panel extends CI_Controller {
 	public function video_bak($q)
 	{
 		$apikey= $this->Panel_model->get_apikey();
-
-	// $apikey = 'AIzaSyCM5jaVAHWTEnCvu0SbF1yenwuQedevmAc';
-
 		$q= $this->input->post('video_bak');
 		$q=preg_replace('/ /','+' ,$q);
 
@@ -105,8 +102,12 @@ class Panel extends CI_Controller {
 
 	public function video_ekle($id) 
 	{
-		$id= $this->input->post('id');
-		echo($id);
+		$apikey= $this->Panel_model->get_apikey();
+		$yunusemre = file_get_contents("https://www.googleapis.com/youtube/v3/videos?id=".$id."&key=".$apikey."&part=snippet");
+		$list =json_decode($yunusemre,true);
+		$viewData['list']=$list;
+		$this->load->view('panel/newadd', $viewData);
+		                   // echo "<pre>"; print_r($list); echo "<pre>";
 
 	}
 
