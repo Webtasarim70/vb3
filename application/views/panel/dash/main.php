@@ -13,9 +13,14 @@
 
 <!-- Main content -->
 <section class="content">
-<!-- yotube video arama formu -->
 
-<form action="<?php echo base_url('panel/video_bak'); ?>" method="POST">
+<div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Dikkat</h4>
+                Yan Menüdeki arama fonksiyonunu kullanarak youtube'dan video arayıp sitenize ekleyebilirsiniz.
+              </div>
+<!-- yotube video arama formu -->
+<!-- <form action="<?php echo base_url('panel/video_bak'); ?>" method="POST">
    <div class="box-body">
       <div class="input-group input-group-sm">
         <input type="text" name="video_bak" class="form-control">
@@ -24,7 +29,7 @@
       </span>
   </div>
   </form>
-  <br>
+  <br> -->
 
   <!-- Info boxes -->
   <div class="row">

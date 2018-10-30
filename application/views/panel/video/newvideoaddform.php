@@ -35,7 +35,7 @@
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $id; ?>" allowfullscreen></iframe>
         </div>
         <!-- form start -->
-        <form role="form" action="<?php echo base_url('panel/update/'); echo $list->video_id; ?>" method="POST">
+        <form role="form" action="<?php echo base_url('panel/video_ekle/'); echo $id; ?>" method="POST">
           <div class="box-body">
             <div class="form-group">
               <label for="exampleInputEmail1">Video Başlığı</label>
@@ -57,22 +57,37 @@
               <label for="exampleInputEmail1">Video Etiketler</label>
               <input type="text" class="form-control" name="video_etiketler" value="<?php foreach ($etiket as $row){ echo $row.", ";}  ?>"  placeholder="Video Etiketlerini Giriniz.">
             </div>
-            <div class="form-group">
-             <label for="durum">Video Durum</label>
-             <select name="durum" class="form-control">
+            
+                  <div class="form-group col-md-6">
+                   <label for="durum">Video Durum</label>
+                   <select name="durum" class="form-control">
 
-              <option value="1" selected>Onaylı  </option>  
-              <option value="2">Onay Bekliyor  </option>
-              
-            </select>
-          </div>
-          <div class="form-group">
-           <label for="tavsiye">Video Öne Çıkar</label>
-           <select name="tavsiye" class="form-control">
-            <option value="1" selected>Öne Çıkarılmış </option>  
-            <option value="2">Normal  </option>
-          </select>
-        </div>
+                    <option value="1" selected>Onaylı  </option>  
+                    <option value="2">Onay Bekliyor  </option>
+                    
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                 <label for="tavsiye">Video Öne Çıkar</label>
+                 <select name="tavsiye" class="form-control">
+                  <option value="1" selected>Öne Çıkarılmış </option>  
+                  <option value="2">Normal  </option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                   <label for="tarih">Video Ekleme Tarihi</label>
+                   <input class="form-control" type="date" name="tarih" id="tarih">
+                    
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                 <label for="kategori">Video Kategorisi</label>
+                 <select name="kategori" class="form-control">
+                  <option value="10" selected>deneme </option>  
+                  <option value="20">deneme 2 </option>
+                </select>
+              </div>
+       
       </div>
       <!-- /.box-body -->
 

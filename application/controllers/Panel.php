@@ -80,7 +80,7 @@ class Panel extends CI_Controller {
 
 	}
 
-	public function video_bak($q)
+	public function video_bak()
 	{
 		$apikey= $this->Panel_model->get_apikey();
 		$q= $this->input->post('video_bak');
@@ -100,7 +100,7 @@ class Panel extends CI_Controller {
 
 	}
 
-	public function video_ekle($id) 
+	public function video_ekle_form($id) 
 	{
 		$apikey= $this->Panel_model->get_apikey();
 		$yunusemre = file_get_contents("https://www.googleapis.com/youtube/v3/videos?id=".$id."&key=".$apikey."&part=snippet");
@@ -111,6 +111,57 @@ class Panel extends CI_Controller {
 
 	}
 
+	public function video_ekle($id)
+	{
+		
+		$baslik= $this->input->post('video_baslik');
+		$sefbaslik= $this->Panel_model->sef_link($baslik);
+
+		$etiket = $this->input->post('video_etiketler');
+		$sefyap= explode(',',$etiket);
+		$dizi=array();
+		foreach ($sefyap as $par){
+			$dizi[]=$this->Panel_model->sef_link($par);
+		}
+		$deger=implode(',', $dizi);
+
+		$data =array(
+			'video_baslik'        => $baslik,
+			'video_sef_baslik'    => $sefbaslik,
+			'video_url'			  => $id,
+			'video_kat'			  => $this->input->post('kategori'),
+			'video_sahibi'        => $this->input->post('video_sahibi'),
+			'video_resim'         => $this->input->post('video_resim'),
+			'video_aciklama'      => $this->input->post('video_aciklama'),
+			'video_etiketler'     => $etiket,
+			'video_sefetiketler'  => $deger,
+			'video_durum'         => $this->input->post('durum'),
+			'video_tavsiye'       => $this->input->post('tavsiye'),
+			'video_eklemetarihi'  => $this->input->post('tarih'),
+			'video_goruntulenme'  => 0
+		);
+
+		$insert=$this->Panel_model->insert($data);
+		if ($insert){
+			$alert = array(
+				'title'   => 'İşlem Başarılıdır',
+				'message' => 'Video Eklendi..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
+
+		} else{
+			$alert = array(
+				'title'    => 'İşlem Başarısız',
+				'message'  => 'Video Eklenemedi',
+				'icon'     =>'ban',
+				'type'     =>'danger'
+			);
+		}
+
+		$this->session->set_flashdata('alert', $alert);
+		redirect(base_url('panel/video'));
+	}
 
 
 
