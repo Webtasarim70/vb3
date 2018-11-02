@@ -7,8 +7,8 @@ class Panel_model extends CI_Model {
 
     }
 
-    public function get_all(){
-        $result = $this->db->order_by('video_id','desc')->get('videolar')->result();
+    public function get_all($table, $order){
+        $result = $this->db->order_by($order,'desc')->get($table)->result();
         return $result;
     }
 

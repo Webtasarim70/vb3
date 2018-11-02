@@ -39,17 +39,29 @@
         </li>
 
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-play-circle"></i> <span>Videolar</span>
-            <span class="pull-right-container">
+              <a href="#">
+                  <i class="fa fa-play-circle"></i> <span>Kategoriler</span>
+                  <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('');?>panel/video"><i class="fa fa-circle-o"></i> Video Listesi</a></li>
-            
-          </ul>
-        </li>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="<?php echo base_url('');?>panel/kategori"><i class="fa fa-circle-o"></i> Kategori Listesi</a></li>
+
+              </ul>
+          </li>
+        <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-play-circle"></i> <span>Videolar</span>
+                  <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="<?php echo base_url('');?>panel/video"><i class="fa fa-circle-o"></i> Video Listesi</a></li>
+
+              </ul>
+          </li>
 
         <li class="treeview">
           <a href="#">

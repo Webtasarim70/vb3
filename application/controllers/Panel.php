@@ -15,7 +15,7 @@ class Panel extends CI_Controller {
 
 	public function video()
 	{
-		$list= $this->Panel_model->get_all();
+		$list= $this->Panel_model->get_all('videolar', 'video_id');
 		$viewData['list']=$list;
 		$this->load->view('panel/video', $viewData);
 	}
@@ -162,6 +162,17 @@ class Panel extends CI_Controller {
 		$this->session->set_flashdata('alert', $alert);
 		redirect(base_url('panel/video'));
 	}
+
+
+	// kategori işlemleri
+
+    public function kategori()
+    {
+        $list= $this->Panel_model->get_all('kategori', 'kategori_id');
+        $viewData['list']=$list;
+        $this->load->view('panel/kategori', $viewData);
+    }
+
 
 
 
