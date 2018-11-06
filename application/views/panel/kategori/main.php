@@ -29,7 +29,6 @@
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
-                <!-- `kategori_id``ana_kategori_id``kategori_adi``kategori_aciklama``kategori_durum` -->
               <th>#</th>
               <th>Kategori Adı</th>
               <th>Varsa Üst Kategorisi Adı</th>

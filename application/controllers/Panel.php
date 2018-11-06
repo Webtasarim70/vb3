@@ -166,15 +166,30 @@ class Panel extends CI_Controller {
 
 	// kategori işlemleri
 
-    public function kategori()
-    {
-        $list= $this->Panel_model->get_all('kategori', 'kategori_id');
-        $viewData['list']=$list;
-        $this->load->view('panel/kategori', $viewData);
-    }
+	public function kategori()
+	{
+		$list= $this->Panel_model->get_all('kategori', 'kategori_id');
+		$viewData['list']=$list;
+		$this->load->view('panel/kategori', $viewData);
+	}
+	public function kategorii()
+	{
+		$list= $this->Panel_model->get_all('kategori', 'kategori_id');
+		$viewData['list']=$list;
+		$this->load->view('panel/kategorii', $viewData);
+	}
+	public function kategoriekleform()
+	{
+		$this->load->view('panel/kategoriekleform');
+	}
 
+	public function kategoriekle()
+	{
+		//  kategori_id 	ana_kategori_id 	kategori_adi 	kategori_aciklama 	kategori_durum 
 
+		$kategoriadi= $this->input->post('kategori');
 
+	}
 
 //class sonu
 }
