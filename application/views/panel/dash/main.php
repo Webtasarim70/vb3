@@ -60,9 +60,6 @@
     </div>
     <!-- /.col -->
 </div>
-
-
-
 </section>
 <!-- /.content -->
 </div>
