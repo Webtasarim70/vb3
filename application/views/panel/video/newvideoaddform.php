@@ -58,45 +58,45 @@
               <input type="text" class="form-control" name="video_etiketler" value="<?php foreach ($etiket as $row){ echo $row.", ";}  ?>"  placeholder="Video Etiketlerini Giriniz.">
             </div>
             
-                  <div class="form-group col-md-6">
-                   <label for="durum">Video Durum</label>
-                   <select name="durum" class="form-control">
+            <div class="form-group col-md-6">
+             <label for="durum">Video Durum</label>
+             <select name="durum" class="form-control">
 
-                    <option value="1" selected>Onaylı  </option>  
-                    <option value="2">Onay Bekliyor  </option>
-                    
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                 <label for="tavsiye">Video Öne Çıkar</label>
-                 <select name="tavsiye" class="form-control">
-                  <option value="1" selected>Öne Çıkarılmış </option>  
-                  <option value="2">Normal  </option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                   <label for="tarih">Video Ekleme Tarihi</label>
-                   <input class="form-control" type="date" name="tarih" id="tarih">
-                    
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                 <label for="kategori">Video Kategorisi</label>
-                 <select name="kategori" class="form-control">
-                  <option value="10" selected>deneme </option>  
-                  <option value="20">deneme 2 </option>
-                </select>
-              </div>
-       
-      </div>
-      <!-- /.box-body -->
+              <option value="1" selected>Onaylı  </option>  
+              <option value="2">Onay Bekliyor  </option>
 
-      <div class="box-footer">
-        <button type="submit" class="btn btn-primary pull-right">Videoyu Ekle!</button>
-      </div>
-    </form>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+           <label for="tavsiye">Video Öne Çıkar</label>
+           <select name="tavsiye" class="form-control">
+            <option value="1" selected>Öne Çıkarılmış </option>  
+            <option value="2">Normal  </option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+         <label for="tarih">Video Ekleme Tarihi</label>
+         <input class="form-control" type="date" name="tarih" id="tarih">
+
+       </select>
+     </div>
+     <div class="form-group col-md-6">
+       <label for="kategori">Video Kategorisi</label>
+       <select name="kategori" class="form-control">
+        <?php $this->Panel_model->selectBoxKategori(); ?>
+      </select>
+    </div>
+
+
   </div>
-  <!-- /.box -->
+  <!-- /.box-body -->
+
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary pull-right">Videoyu Ekle!</button>
+  </div>
+</form>
+</div>
+<!-- /.box -->
 </div>
 <!-- /.row -->
 </section>

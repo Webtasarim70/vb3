@@ -23,19 +23,15 @@
       </div>
     <?php } ?>
 
-
-
-    <?php $this->Panel_model->kategoriListesi(); ?>
-
     <!-- Main content -->
-    <section class="content">
+<section class="content">
      <div class="box">
+      <?php $this->Panel_model->kategoriListesi(); ?>
+    </div>
+    <!-- /.box-body -->
+  </div>
 
-     </div>
-     <!-- /.box-body -->
-   </div>
-
- </section>
- <!-- /.content -->
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

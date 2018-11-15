@@ -39,12 +39,12 @@
                     <?php $this->Panel_model->selectBoxKategori(); ?>
                   </select>
                 </div>
-                </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kategori Açıklaması </label>
                   <input type="text" class="form-control" name="kategori_aciklama" value=""  placeholder="Kategori Açıklamasını Giriniz">
                 </div>
                 <button type="submit" class="btn btn-primary pull-right">Ekle!</button>
+                </div>
 
               </div>
               <!-- /.box-body -->
