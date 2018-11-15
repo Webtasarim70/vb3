@@ -50,7 +50,11 @@
                 <td><?php echo $row->video_kat; ?></td>
                 <td><?php echo $row->video_durum; ?></td>
                 <td><a href="<?php echo base_url('panel/video_form/'); echo $row->video_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
-                  <a href="<?php echo base_url('panel/delete/'); echo $row->video_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
+                  <a href="<?php echo base_url('panel/delete/'); echo $row->video_id; ?>" class="btn btn-danger btn-sm"> Sil </a>
+
+
+
+                </td>
                 </tr>
               <?php } ?>               
             </tbody>

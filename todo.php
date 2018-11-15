@@ -1,9 +1,7 @@
 <ul>
 	<ul>
 		<li> Kategori listesinde üst kategori adı</li>
-		<li> Kategori Ekleme</li>
-		<li> Kategori Silme</li>
-		<li> Kategori Düzenleme</li>
+		<li> Kategori Düzenleme formu + işlemi</li>
 	</ul>
 	<li> login işlemleri</li>
 	<li> Durum  işlemleri</li>

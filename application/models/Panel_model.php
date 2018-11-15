@@ -12,13 +12,13 @@ class Panel_model extends CI_Model {
         return $result;
     }
 
-    public function get($where){
-        $result = $this->db->where($where)->get('videolar')->row();
+    public function get($where,$table_name ){
+        $result = $this->db->where($where)->get($table_name)->row();
         return $result;
     }
 
-    public function insert($data){
-     $insert = $this->db->insert('videolar', $data);
+    public function insert($data,$table_name){
+     $insert = $this->db->insert($table_name, $data);
      return $insert;
  }
 
@@ -28,8 +28,8 @@ class Panel_model extends CI_Model {
 
 }
 
-public function delete($where){
-    $delete = $this->db->where($where)->delete('videolar');
+public function delete($where, $table_name){
+    $delete = $this->db->where($where)->delete($table_name);
     return $delete;
 }
 
@@ -85,8 +85,8 @@ public function KategoriListesi($id = 0) {
             echo '<li>'.$row->kategori_adi;
             echo '
             <span class="ml-1 mr-1"></span>
-            <a class="text-success" href="'.base_url("panel/kategoriduzenle/$row->kategori_id").'" data-toggle="tooltip" data-placement="top" title="Düzelt"><i class="fa fa-edit"></i></a>
-            <a class="text-danger delete" href="javascript:void(0);" data-link="'.base_url("panel/delete/$row->kategori_id").'" data-title="'.$row->kategori_adi.'" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash"></i></a>
+            <a class="text-success" href="'.base_url("panel/kategori_form/$row->kategori_id").'" data-toggle="tooltip" data-placement="top" title="Düzelt"><i class="fa fa-edit"></i></a>
+            <a class="text-danger delete" href="'.base_url("panel/kategorisil/$row->kategori_id").'" data-title="'.$row->kategori_adi.'" data-toggle="tooltip" data-placement="top" title="Sil"><i class="fa fa-trash"></i></a>
             ';
             $this->KategoriListesi($row->kategori_id);
         }

@@ -29,7 +29,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kategori Ekle</label>
-                  <input type="text" class="form-control" name="kategori" value=""  placeholder="Kategori Adını Giriniz">
+                  <input type="text" class="form-control" name="kategori"  placeholder="Kategori Adını Giriniz">
                 </div>
 
                 <div class="form-group">

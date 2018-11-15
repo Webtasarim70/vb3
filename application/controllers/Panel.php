@@ -23,7 +23,7 @@ class Panel extends CI_Controller {
 	public function video_form($id)
 	{
 		$where=array('video_id' => $id);
-		$list = $this->Panel_model->get($where);
+		$list = $this->Panel_model->get($where, 'videolar');
 		$viewData['list']=$list;
 		$this->load->view('panel/video_edit', $viewData);
 	}
@@ -32,7 +32,7 @@ class Panel extends CI_Controller {
 	{
 		$where = array('video_id' => $id);
 
-		$this->Panel_model->delete($where);
+		$this->Panel_model->delete($where, 'videolar');
 
 		$alert = array(
 			'title'  => 'İşlem Başarılıdır',
@@ -187,9 +187,63 @@ class Panel extends CI_Controller {
 	{
 		//  kategori_id 	ana_kategori_id 	kategori_adi 	kategori_aciklama 	kategori_durum 
 
-		$kategoriadi= $this->input->post('kategori');
+		$kategori_adi       = $this->input->post('kategori');
+		$ustkategori		= $this->input->post('ana_kategori_id');
+		$kategoriaciklama 	= $this->input->post('kategori_aciklama');
+		
+		$data =array(
+			'kategori_adi'           => $kategori_adi,
+			'ana_kategori_id'        => $ustkategori,
+			'kategori_aciklama'		 =>$kategoriaciklama,
+			'kategori_durum'		 =>1
+		);	
 
+		$insert=$this->Panel_model->insert($data,'kategori');
+		if ($insert){
+			$alert = array(
+				'title'   => 'İşlem Başarılıdır',
+				'message' => 'Video Eklendi..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
+
+		} else{
+			$alert = array(
+				'title'    => 'İşlem Başarısız',
+				'message'  => 'Video Eklenemedi',
+				'icon'     =>'ban',
+				'type'     =>'danger'
+			);
+		}
+
+		$this->session->set_flashdata('alert', $alert);
+		redirect(base_url('panel/kategori'));
+
+	 }
+
+	 	public function kategorisil($id)
+	{
+		$where = array('kategori_id' => $id);
+
+		$this->Panel_model->delete($where,'kategori');
+
+		$alert = array(
+			'title'  => 'İşlem Başarılıdır',
+			'message' => 'Kayıt Silindi..',
+			'icon'    =>'check',
+			'type'      =>'success'
+		);
+		$this->session->set_flashdata('alert', $alert);
+		redirect(base_url('panel/kategori'));
+	}
+
+	public function kategori_form($id)
+	{
+		$where=array('kategori_id' => $id);
+		$list = $this->Panel_model->get($where, 'kategori');
+		$viewData['list']=$list;
+		$this->load->view('panel/kategori_edit', $viewData);
 	}
 
 //class sonu
-}
+	}

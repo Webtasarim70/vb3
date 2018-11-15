@@ -45,8 +45,8 @@
                 <td><?php echo $row->ana_kategori_id; ?></td>
                 <td><?php echo $row->kategori_aciklama; ?></td>
                 <td><?php echo $row->kategori_durum; ?></td>
-                <td><a href="<?php echo base_url('panel/video_form/'); echo $row->kategori_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
-                  <a href="<?php echo base_url('panel/delete/'); echo $row->kategori_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
+                <td><a href="<?php echo base_url('panel/kategori_form/'); echo $row->kategori_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
+                  <a href="<?php echo base_url('panel/kategorisil/'); echo $row->kategori_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
                 </tr>
               <?php } ?>               
             </tbody>
