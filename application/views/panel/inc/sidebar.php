@@ -40,7 +40,7 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-play-circle"></i> <span>Kategoriler</span>
+            <i class="fa fa-folder"></i> <span>Kategoriler</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -73,6 +73,9 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('assets/AdminLTE-master/');?>index.html"><i class="fa fa-circle-o"></i> adminLTE tema</a></li>
+
+          <li><a href="<?php echo base_url('assets/zKoolTube/');?>"><i class="fa fa-circle-o"></i> zKoolTube</a></li>
+          assets/zKoolTube/
 
         </ul>
       </li>

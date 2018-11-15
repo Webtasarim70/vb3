@@ -13,7 +13,7 @@
 
     <!-- Main content -->
     <section class="content">
-      
+
       <!--todo -->
       <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -48,28 +48,56 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Video Sayısı</span>
-          <span class="info-box-number">???<small> Adet</small></span>
-        </div>
-        <!-- /.info-box-content -->
-      </div>
-      <!-- /.info-box -->
-    </div>
-    <!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+          <span class="info-box-number">
 
-        <div class="info-box-content">
-          <span class="info-box-text">Likes</span>
-          <span class="info-box-number">41,410</span>
+            <?php echo $this->Panel_model->rowcount('videolar'); ?>
+            <small> Adet</small></span>
+          </div>
+          <!-- /.info-box-content -->
         </div>
-        <!-- /.info-box-content -->
+        <!-- /.info-box -->
       </div>
-      <!-- /.info-box -->
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-folder"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Kategori</span>
+            <span class="info-box-number"><?php echo $this->Panel_model->rowcount('kategori'); ?><small> Adet</small></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+<!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Yönetici</span>
+            <span class="info-box-number"><?php echo $this->Panel_model->rowcount('admin'); ?><small> Adet</small></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="fa fa-comment"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Yorum</span>
+            <span class="info-box-number"><?php echo $this->Panel_model->rowcount('yorumlar'); ?><small> Adet</small></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
     </div>
-    <!-- /.col -->
-  </div>
-</section>
-<!-- /.content -->
+  </section>
+  <!-- /.content -->
 </div>
   <!-- /.content-wrapper -->

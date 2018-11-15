@@ -57,7 +57,7 @@ class Panel extends CI_Controller {
 			'video_tavsiye' => $this->input->post('video_tavsiye'),
 		);
 
-		$update=$this->Panel_model->update($where, $data);
+		$update=$this->Panel_model->update($where, $data, 'videolar');
 		if ($update){
 			$alert = array(
 				'title'   => 'İşlem Başarılıdır',
@@ -244,6 +244,47 @@ class Panel extends CI_Controller {
 		$viewData['list']=$list;
 		$this->load->view('panel/kategori_edit', $viewData);
 	}
+
+    public function updateKategori($id)
+    {
+        $kategori_adi       = $this->input->post('kategori');
+        $ustkategori		= $this->input->post('ana_kategori_id');
+        $kategoriaciklama 	= $this->input->post('kategori_aciklama');
+
+
+
+        $where = array('kategori_id' => $id);
+        $data =array(
+            'kategori_adi'       => $kategori_adi,
+            'ana_kategori_id'    => $ustkategori,
+            'kategori_aciklama'  =>$kategoriaciklama
+        );
+
+        $update=$this->Panel_model->update($where, $data, 'kategori');
+        if ($update){
+            $alert = array(
+                'title'   => 'İşlem Başarılıdır',
+                'message' => 'Güncelleme Başarılıdır..',
+                'icon'    =>'check',
+                'type'      =>'success'
+            );
+
+        } else{
+            $alert = array(
+                'title'    => 'İşlem Başarısız',
+                'message'  => 'Güncelleme Yapılmadı',
+                'icon'     =>'ban',
+                'type'     =>'danger'
+            );
+        }
+
+        $this->session->set_flashdata('alert', $alert);
+        redirect(base_url('panel/kategori'));
+
+    }
+
+
+
 
 //class sonu
 	}

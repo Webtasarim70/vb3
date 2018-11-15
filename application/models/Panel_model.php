@@ -22,8 +22,8 @@ class Panel_model extends CI_Model {
      return $insert;
  }
 
- public function update($where, $data){
-    $update = $this->db->where($where)->update('videolar',$data);
+ public function update($where, $data, $table_name){
+    $update = $this->db->where($where)->update($table_name,$data);
     return $update;
 
 }
@@ -39,8 +39,8 @@ public function order_by($field= 'id' , $order ='ASC'){
 
 }
 
-public function rowcount($where, $table_name){
-    $result= $this->db->where($where)->count_all_results( $table_name);
+public function rowcount($table_name){
+    $result= $this->db->count_all_results( $table_name);
     return $result;
 }
 
@@ -93,7 +93,11 @@ public function KategoriListesi($id = 0) {
         echo "</li></ul>";
     }
 }
-
+    public function ustkat($id){
+    
+    $result = $this->db->where('ana_kategori_id',$id)->get('kategori')->row()->kategori_adi;
+    return $result;
+}
 
 
 
