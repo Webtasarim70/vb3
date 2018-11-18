@@ -7,7 +7,8 @@
           <img src="<?php echo base_url('assets/AdminLTE-master/');?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php $login=$this->session->userdata('user'); echo $login->admin_isim; ?>
+</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -79,7 +80,9 @@
 
         </ul>
       </li>
+      <li> <a href="<?php echo base_url('panel/logout'); ?>"><i class="fa fa-circle-o text-red">  Çıkış Yap</i></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->
 </aside>
+

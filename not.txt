@@ -22,3 +22,11 @@ function sef_link($str){
 
 
     $tarih=date('d-m-y');
+
+
+        $login=$this->session->userdata('user');
+        if (!$login) {
+            $this->load->view('panel/login');
+        }else{
+            
+        }

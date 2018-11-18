@@ -1,8 +1,6 @@
 <ul>
-	<li> login işlemleri</li>
 	<li> Durum  işlemleri</li>
-	<li> Giriş Sayfası istatislik cekimleri</li>
-
-
-
+	<li> header istatislik cekimleri</li>
+	<li> yorum işlemleri</li>
+	<li> öneriler islemleri</li>
 </ul>
