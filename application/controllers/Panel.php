@@ -6,11 +6,58 @@ class Panel extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Panel_model');
+        $this->load->library('form_validation');
 	}
 
 	public function index()
 	{
 		$this->load->view('panel/anasayfa');
+	}
+
+	public function login_form(){
+		$this->load->view('panel/login');
+	}
+
+	public function login(){
+		// form validation
+		$this->form_validation->set_rules('email','E-posta','required|trim|valid_email');
+		$this->form_validation->set_rules('sifre','Şifre','required|trim|min_length[6]');
+
+
+
+        if($this->form_validation->run() == FALSE){
+            //hata mesajı göster
+
+            $hata= array(
+                'required'       => '<strong>{field}</strong> alanını doldurmak zorundasınız.',
+                'valid_email'    => 'Lütfen Gecerli Bir Eposta Adresi Giriniz',
+                'min_length'     => 'Şifrenizi tam olarak giriniz'
+            );
+            $this->form_validation->set_message($hata);
+
+           echo validation_errors();
+
+                echo 'form validation hatası';
+                }else{
+		        //form validation TRUE, db control
+
+                $where =array(
+                    'admin_posta' => $this->input->post('email'),
+                    'admin_sifre' => sha1(md5($this->input->post('sifre'))),
+                );
+                print_r($where);
+                $member= $this->Panel_model->get($where,'admin');
+
+                if($member){
+                    echo 'ok üye bulundu';
+                }else{
+                    echo 'db hatası';
+                };
+
+            }
+
+		// db control	
+
 	}
 
 	public function video()
@@ -219,9 +266,9 @@ class Panel extends CI_Controller {
 		$this->session->set_flashdata('alert', $alert);
 		redirect(base_url('panel/kategori'));
 
-	 }
+	}
 
-	 	public function kategorisil($id)
+	public function kategorisil($id)
 	{
 		$where = array('kategori_id' => $id);
 
@@ -245,46 +292,46 @@ class Panel extends CI_Controller {
 		$this->load->view('panel/kategori_edit', $viewData);
 	}
 
-    public function updateKategori($id)
-    {
-        $kategori_adi       = $this->input->post('kategori');
-        $ustkategori		= $this->input->post('ana_kategori_id');
-        $kategoriaciklama 	= $this->input->post('kategori_aciklama');
+	public function updateKategori($id)
+	{
+		$kategori_adi       = $this->input->post('kategori');
+		$ustkategori		= $this->input->post('ana_kategori_id');
+		$kategoriaciklama 	= $this->input->post('kategori_aciklama');
 
 
 
-        $where = array('kategori_id' => $id);
-        $data =array(
-            'kategori_adi'       => $kategori_adi,
-            'ana_kategori_id'    => $ustkategori,
-            'kategori_aciklama'  =>$kategoriaciklama
-        );
+		$where = array('kategori_id' => $id);
+		$data =array(
+			'kategori_adi'       => $kategori_adi,
+			'ana_kategori_id'    => $ustkategori,
+			'kategori_aciklama'  =>$kategoriaciklama
+		);
 
-        $update=$this->Panel_model->update($where, $data, 'kategori');
-        if ($update){
-            $alert = array(
-                'title'   => 'İşlem Başarılıdır',
-                'message' => 'Güncelleme Başarılıdır..',
-                'icon'    =>'check',
-                'type'      =>'success'
-            );
+		$update=$this->Panel_model->update($where, $data, 'kategori');
+		if ($update){
+			$alert = array(
+				'title'   => 'İşlem Başarılıdır',
+				'message' => 'Güncelleme Başarılıdır..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
 
-        } else{
-            $alert = array(
-                'title'    => 'İşlem Başarısız',
-                'message'  => 'Güncelleme Yapılmadı',
-                'icon'     =>'ban',
-                'type'     =>'danger'
-            );
-        }
+		} else{
+			$alert = array(
+				'title'    => 'İşlem Başarısız',
+				'message'  => 'Güncelleme Yapılmadı',
+				'icon'     =>'ban',
+				'type'     =>'danger'
+			);
+		}
 
-        $this->session->set_flashdata('alert', $alert);
-        redirect(base_url('panel/kategori'));
+		$this->session->set_flashdata('alert', $alert);
+		redirect(base_url('panel/kategori'));
 
-    }
+	}
 
 
 
 
 //class sonu
-	}
+}

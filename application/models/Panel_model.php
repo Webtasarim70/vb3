@@ -12,7 +12,7 @@ class Panel_model extends CI_Model {
         return $result;
     }
 
-    public function get($where,$table_name ){
+    public function get($where,$table_name){
         $result = $this->db->where($where)->get($table_name)->row();
         return $result;
     }
