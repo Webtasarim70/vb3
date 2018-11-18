@@ -8,81 +8,103 @@
         </div>
         <div class="pull-left info">
           <p><?php $login=$this->session->userdata('user'); echo $login->admin_isim; ?>
-</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
+        </p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
-      <!-- search form -->
-      <form action="<?php echo base_url('panel/video_bak'); ?>" method="post" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="video_bak" class="form-control" placeholder="Youtube video Ara!">
-          <span class="input-group-btn">
-            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-            </button>
-          </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">YÖNETİM PANELİ</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Yönetim</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('');?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Kategoriler</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-           <li><a href="<?php echo base_url('');?>panel/kategoriekleform"><i class="fa fa-circle-o"></i> Kategori Ekle</a></li>
-           <li><a href="<?php echo base_url('');?>panel/kategori"><i class="fa fa-circle-o"></i> Kategori Listesi</a></li>
-           <li><a href="<?php echo base_url('');?>panel/kategorii"><i class="fa fa-circle-o"></i> Kategori Ağaçı</a></li>
-         </ul>
-       </li>
-       <li class="treeview">
+    </div>
+    <!-- search form -->
+    <form action="<?php echo base_url('panel/video_bak'); ?>" method="post" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="video_bak" class="form-control" placeholder="Youtube video Ara!">
+        <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">YÖNETİM PANELİ</li>
+      <li class="treeview">
         <a href="#">
-          <i class="fa fa-play-circle"></i> <span>Videolar</span>
+          <i class="fa fa-dashboard"></i> <span>Yönetim</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('');?>panel/video"><i class="fa fa-circle-o"></i> Video Listesi</a></li>
+          <li><a href="<?php echo base_url('panel');?>"><i class="fa fa-circle-o"></i> Giriş Sayfası</a></li>
+          <li><a href="<?php echo base_url('panel/ayar_form');?>"><i class="fa fa-circle-o"></i> Site Genel Ayarları</a></li>
+          <li><a href="<?php echo base_url('panel/yonetici');?>"><i class="fa fa-circle-o"></i> Yönetici Listesi</a></li>
+          <li><a href="<?php echo base_url('panel/yonetici_ekleform');?>"><i class="fa fa-circle-o"></i> Yeni Yönetici </a></li>
+
+
+
 
         </ul>
       </li>
 
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Örnek</span>
+          <i class="fa fa-folder"></i> <span>Kategoriler</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('assets/AdminLTE-master/');?>index.html"><i class="fa fa-circle-o"></i> adminLTE tema</a></li>
+         <li><a href="<?php echo base_url('');?>panel/kategoriekleform"><i class="fa fa-circle-o"></i> Kategori Ekle</a></li>
+         <li><a href="<?php echo base_url('');?>panel/kategori"><i class="fa fa-circle-o"></i> Kategori Listesi</a></li>
+         <li><a href="<?php echo base_url('');?>panel/kategorii"><i class="fa fa-circle-o"></i> Kategori Ağaçı</a></li>
+       </ul>
+     </li>
+     <li class="treeview">
+      <a href="#">
+        <i class="fa fa-play-circle"></i> <span>Videolar</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('');?>panel/video"><i class="fa fa-circle-o"></i> Video Listesi</a></li>
 
-          <li><a href="<?php echo base_url('assets/zKoolTube/');?>"><i class="fa fa-circle-o"></i> zKoolTube</a></li>
-          assets/zKoolTube/
+      </ul>
+    </li>
 
-        </ul>
-      </li>
-      <li> <a href="<?php echo base_url('panel/logout'); ?>"><i class="fa fa-circle-o text-red">  Çıkış Yap</i></a></li>
-    </ul>
-  </section>
-  <!-- /.sidebar -->
+<li class="treeview">
+      <a href="#">
+        <i class="fa fa-comment"></i> <span>Yorum Öneri</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('panel/yorumlistesi');?>"><i class="fa fa-circle-o"></i> Yorum Listesi</a></li>
+        <li><a href="<?php echo base_url('panel/onerilistesi');?>"><i class="fa fa-circle-o"></i> Öneri Listesi</a></li>
+      </ul>
+    </li>
+
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-dashboard"></i> <span>Örnek</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('assets/AdminLTE-master/');?>index.html"><i class="fa fa-circle-o"></i> adminLTE tema</a></li>
+
+        <li><a href="<?php echo base_url('assets/zKoolTube/');?>"><i class="fa fa-circle-o"></i> zKoolTube</a></li>
+      
+      </ul>
+    </li>
+    <li class="header">LİNKLER</li>
+    <li><a href="<?php echo base_url('#'); ?>""><i class="fa fa-circle-o text-green"></i> <span>Siteye Geçiş Yap</span></a></li>
+    <li><a href="<?php echo base_url('panel/logout'); ?>""><i class="fa fa-circle-o text-red"></i> <span>Çıkış Yap</span></a></li>
+
+
+  </ul>
+</section>
+<!-- /.sidebar -->
 </aside>
 

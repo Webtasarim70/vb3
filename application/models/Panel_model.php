@@ -16,6 +16,10 @@ class Panel_model extends CI_Model {
         $result = $this->db->where($where)->get($table_name)->row();
         return $result;
     }
+    public function getvideourl($where){
+        $result = $this->db->where($where)->get('videolar')->row()->video_url;
+        return $result;
+    }
 
     public function insert($data,$table_name){
      $insert = $this->db->insert($table_name, $data);
@@ -41,6 +45,10 @@ public function order_by($field= 'id' , $order ='ASC'){
 
 public function rowcount($table_name){
     $result= $this->db->count_all_results( $table_name);
+    return $result;
+}
+public function rowcountif($where,$table_name){
+    $result= $this->db->where($where)->count_all_results( $table_name);
     return $result;
 }
 

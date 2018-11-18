@@ -186,6 +186,28 @@ class Panel extends CI_Controller {
 			$this->load->view('panel/aramaliste', $viewData);
 		}
 	}
+	public function video_ara($id)
+	{
+
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+
+			$apikey= $this->Panel_model->get_apikey();
+			$q=preg_replace('/ /','+' ,$id);
+
+			$searchUrl="https://www.googleapis.com/youtube/v3/search?part=snippet&q=".$q."&type=video&key=".$apikey."&maxResults=50";
+
+			$response=file_get_contents($searchUrl);
+			$list=json_decode($response,true);
+
+                     //echo "<pre>"; print_r($list); echo "<pre>";
+
+			$viewData['list']=$list;
+			$this->load->view('panel/aramaliste', $viewData);
+		}
+	}
 
 	public function video_ekle_form($id) 
 	{
@@ -238,7 +260,7 @@ class Panel extends CI_Controller {
 				'video_goruntulenme'  => 0
 			);
 
-			$insert=$this->Panel_model->insert($data);
+			$insert=$this->Panel_model->insert($data, 'videolar');
 			if ($insert){
 				$alert = array(
 					'title'   => 'İşlem Başarılıdır',
@@ -421,6 +443,245 @@ class Panel extends CI_Controller {
 
 		}
 	}
+
+	public function ayar_form(){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$where = array(
+				'ayar_id' =>1,
+			);
+			$list= $this->Panel_model->get($where, 'ayarlar');
+			$viewData['list']=$list;
+			$this->load->view('panel/ayarlar', $viewData);
+		}
+
+	}
+
+	public function update_ayar($id){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$where = array('ayar_id' => $id);
+			$data =array(
+				'site_url' => $this->input->post('site_url'),
+				'site_baslik' => $this->input->post('site_baslik'),
+				'site_keyw' => $this->input->post('site_keyw'),
+				'site_desc' => $this->input->post('site_desc'),
+				'site_duyuru' => $this->input->post('site_duyuru'),
+				'site_footer' => $this->input->post('site_footer'),
+				'site_apikey' => $this->input->post('site_apikey'),
+				'site_baslik' => $this->input->post('site_baslik'),
+			);
+
+			$update=$this->Panel_model->update($where, $data, 'ayarlar');
+			if ($update){
+				$alert = array(
+					'title'   => 'İşlem Başarılıdır',
+					'message' => 'Güncelleme Başarılıdır..',
+					'icon'    =>'check',
+					'type'      =>'success'
+				);
+
+			} else{
+				$alert = array(
+					'title'    => 'İşlem Başarısız',
+					'message'  => 'Güncelleme Yapılmadı',
+					'icon'     =>'ban',
+					'type'     =>'danger'
+				);
+			}
+
+			$this->session->set_flashdata('alert', $alert);
+			redirect(base_url('panel/ayar_form'));
+		}
+	}
+	public function yonetici()
+	{
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+			$list= $this->Panel_model->get_all('admin', 'admin_id');
+			$viewData['list']=$list;
+			$this->load->view('panel/yonetici', $viewData);
+		}
+	}
+
+	public function yonetici_form($id){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$where = array(
+				'admin_id' =>$id,
+			);
+			$list= $this->Panel_model->get($where, 'admin');
+			$viewData['list']=$list;
+			$this->load->view('panel/yonetici_form', $viewData);
+		}
+
+	}
+
+	public function update_yonetici($id){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$where = array('admin_id' => $id);
+			$data =array(
+				'admin_isim' => $this->input->post('admin_isim'),
+				'admin_posta' => $this->input->post('admin_posta'),
+			);
+
+			$update=$this->Panel_model->update($where, $data, 'admin');
+			if ($update){
+				$alert = array(
+					'title'   => 'İşlem Başarılıdır',
+					'message' => 'Güncelleme Başarılıdır..',
+					'icon'    =>'check',
+					'type'      =>'success'
+				);
+
+			} else{
+				$alert = array(
+					'title'    => 'İşlem Başarısız',
+					'message'  => 'Güncelleme Yapılmadı',
+					'icon'     =>'ban',
+					'type'     =>'danger'
+				);
+			}
+
+			$this->session->set_flashdata('alert', $alert);
+			redirect(base_url('panel/yonetici'));
+		}
+	}
+
+	public function yonetici_ekleform(){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+			$this->load->view('panel/yonetici_formekle');
+
+		}
+	}
+
+
+
+	public function yoneticiekle(){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+
+			// form validation
+			$this->form_validation->set_rules('admin_posta','E-posta','required|trim|valid_email|is_unique[admin.admin_posta]');
+			$this->form_validation->set_rules('admin_sifre','Şifre','required|trim|min_length[6]');
+			$this->form_validation->set_rules('sifre_tekrar','Şifre Tekrarı', 'required|matches[admin_sifre]');
+
+			if($this->form_validation->run() == FALSE){
+            //hata mesajı göster
+
+				$hata= array(
+					'required'       => '<strong>{field}</strong> alanını doldurmak zorundasınız.',
+					'valid_email'    => 'Lütfen Gecerli Bir Eposta Adresi Giriniz',
+					'min_length'     => 'Şifrenizi tam olarak giriniz'
+				);
+				$this->form_validation->set_message($hata);
+
+				echo validation_errors();
+
+				echo 'form validation hatası';
+			}else{
+		        //form validation TRUE, db control
+
+				$data =array(
+					'admin_isim'           => $this->input->post('admin_isim'),
+					'admin_posta'           =>$this->input->post('admin_posta'),
+					'admin_sifre'           => 
+					sha1(md5($this->input->post('admin_sifre')))
+				);	
+
+				$insert=$this->Panel_model->insert($data,'admin');
+				if ($insert){
+					$alert = array(
+						'title'   => 'İşlem Başarılıdır',
+						'message' => 'Video Eklendi..',
+						'icon'    =>'check',
+						'type'      =>'success'
+					);
+
+				} else{
+					$alert = array(
+						'title'    => 'İşlem Başarısız',
+						'message'  => 'Video Eklenemedi',
+						'icon'     =>'ban',
+						'type'     =>'danger'
+					);
+				}
+
+				$this->session->set_flashdata('alert', $alert);
+				redirect(base_url('panel/yonetici'));
+			}
+		}
+	}
+
+	public function yonetici_sil($id)
+	{
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+			$where = array('admin_id' => $id);
+
+			$this->Panel_model->delete($where, 'admin');
+
+			$alert = array(
+				'title'  => 'İşlem Başarılıdır',
+				'message' => 'Kayıt Silindi..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
+			$this->session->set_flashdata('alert', $alert);
+			redirect(base_url('panel/yonetici'));  
+		}
+		
+	}
+
+	public function yorumlistesi(){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$list= $this->Panel_model->get_all('yorumlar','yorum_id');
+			$viewData['list']=$list;
+			$this->load->view('panel/yorumlar', $viewData);
+		}
+
+	}
+	public function onerilistesi(){
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{ 
+			$list= $this->Panel_model->get_all('oneriler','oneri_id');
+			$viewData['list']=$list;
+			$this->load->view('panel/oneriler', $viewData);
+		}
+
+	}
+
+
+
+
+
+
+
+
+
 
 
 

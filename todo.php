@@ -1,6 +1,5 @@
 <ul>
 	<li> Durum  işlemleri</li>
 	<li> header istatislik cekimleri</li>
-	<li> yorum işlemleri</li>
-	<li> öneriler islemleri</li>
+	<ul><li>kategori option select </li></ul>
 </ul>
