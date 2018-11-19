@@ -26,6 +26,7 @@
 <script src="<?php echo base_url('assets/AdminLTE-master/');?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/AdminLTE-master/');?>dist/js/demo.js"></script>
+<script src="<?php echo base_url('assets/js/');?>bootstrap-toggle.min.js"></script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
@@ -34,7 +35,14 @@
 <!-- page script -->
 <script>
   $(function () {
-    $('#example1').DataTable()
+      $('.toggle_check').bootstrapToggle();
+      $('.toggle_check').change(function() {
+          var durum       = $(this).prop('checked');
+          var id          = $(this).attr('dataID');
+          var base_url    = $(this).attr('dataURL');
+          $.post(base_url, {id: id, durum: durum}, function(response){});
+      })
+    $('#example1').DataTable();
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,

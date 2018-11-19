@@ -685,6 +685,28 @@ class Panel extends CI_Controller {
 		}
 		
 	}
+	public function oneri_sil($id)
+	{
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+			$where = array('oneri_id' => $id);
+
+			$this->Panel_model->delete($where, 'oneriler');
+
+			$alert = array(
+				'title'  => 'İşlem Başarılıdır',
+				'message' => 'Kayıt Silindi..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
+			$this->session->set_flashdata('alert', $alert);
+			redirect(base_url('panel/onerilistesi'));
+		}
+
+	}
+
 	public function onerilistesi(){
 		$login=$this->session->userdata('user');
 		if (!$login) {
@@ -698,6 +720,14 @@ class Panel extends CI_Controller {
 	}
 
 
+	public function durum(){
+
+		$id= $this->input->post('id');
+		$durum = ($this->input->post('durum')== "true") ? 1 : 0;
+
+		$this->db->where('video_id', $id)->update('videolar', array('video_durum' => $durum));
+
+	}
 
 
 
