@@ -48,8 +48,8 @@
                 <td><?php $id=$row->yorum_video_id;
                 $where= array('video_id' => $id, );
                 $url=$this->Panel_model->getvideourl($where);
-                $retVal = ($url) ? $url : 'silinmiş' ;
-                echo $retVal;
+                echo $retVal = ($url=="") ? 'silinmiş' : $url ;
+                
                 ?>
               </td>
               <td><?php echo $row->yorum_isim; ?></td>

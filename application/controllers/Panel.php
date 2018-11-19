@@ -651,6 +651,7 @@ class Panel extends CI_Controller {
 		
 	}
 
+
 	public function yorumlistesi(){
 		$login=$this->session->userdata('user');
 		if (!$login) {
@@ -661,6 +662,28 @@ class Panel extends CI_Controller {
 			$this->load->view('panel/yorumlar', $viewData);
 		}
 
+	}
+
+	public function yorum_sil($id)
+	{
+		$login=$this->session->userdata('user');
+		if (!$login) {
+			$this->load->view('panel/login');
+		}else{
+			$where = array('yorum_id' => $id);
+
+			$this->Panel_model->delete($where, 'yorumlar');
+
+			$alert = array(
+				'title'  => 'İşlem Başarılıdır',
+				'message' => 'Kayıt Silindi..',
+				'icon'    =>'check',
+				'type'      =>'success'
+			);
+			$this->session->set_flashdata('alert', $alert);
+			redirect(base_url('panel/yorumlistesi'));  
+		}
+		
 	}
 	public function onerilistesi(){
 		$login=$this->session->userdata('user');
