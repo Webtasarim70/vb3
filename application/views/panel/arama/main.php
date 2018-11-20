@@ -32,7 +32,7 @@
           <tr>
             <!--  Video Resim  Video Başlık  Video ID  Video Sahibi  İşlemler -->
 
-            <th>Youtube ID</th>
+            <th>ID</th>
             <th>Video Resim</th>
             <th>Video Başlık</th>
             <th>Video ID</th>
@@ -42,14 +42,14 @@
         </thead>
         <tbody>
           <tr>
-            <?php foreach ($list['items'] as $row ){ 
+            <?php $say=1; foreach ($list['items'] as $row ){ 
              $id =$row['id']['videoId'];
              $baslik=$row['snippet']['title'];
              $resim=$row['snippet']['thumbnails']['medium']['url'];
              $sahibi=$row['snippet']['channelTitle'];
              ?>
 
-             <td><?php echo $id; ?></td>
+             <td><?php echo $say++; ?> </td>
              <td><img style="width: 100px" src="<?php echo $resim; ?>"></td>
              <td><?php echo $baslik; ?></td>
              <td><a href="https://www.youtube.com/watch?v=<?php echo $id; ?>"><?php echo $id; ?> </a></td>

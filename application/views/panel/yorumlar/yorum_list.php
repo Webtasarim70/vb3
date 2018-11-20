@@ -43,8 +43,8 @@
            </thead>
            <tbody>
             <tr>
-              <?php foreach ($list as $row ){ ?>
-                <td><?php echo $row->yorum_id; ?></td>
+              <?php $say=1; foreach ($list as $row ){ ?>
+                <td><?php echo $say++; ?></td>
                 <td><?php $id=$row->yorum_video_id;
                 $where= array('video_id' => $id, );
                 $url=$this->Panel_model->getvideourl($where);

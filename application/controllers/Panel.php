@@ -138,6 +138,7 @@ class Panel extends CI_Controller {
 				'video_etiketler' => $this->input->post('video_etiketler'),
 				'video_durum' => $this->input->post('video_durum'),
 				'video_tavsiye' => $this->input->post('video_tavsiye'),
+				'video_kat'		=> $this->input->post('kategori')
 			);
 
 			$update=$this->Panel_model->update($where, $data, 'videolar');
@@ -444,7 +445,7 @@ class Panel extends CI_Controller {
 		}
 	}
 
-	public function ayar_form(){
+		public function ayar_form(){
 		$login=$this->session->userdata('user');
 		if (!$login) {
 			$this->load->view('panel/login');
@@ -648,7 +649,7 @@ class Panel extends CI_Controller {
 			$this->session->set_flashdata('alert', $alert);
 			redirect(base_url('panel/yonetici'));  
 		}
-		
+
 	}
 
 
@@ -683,7 +684,7 @@ class Panel extends CI_Controller {
 			$this->session->set_flashdata('alert', $alert);
 			redirect(base_url('panel/yorumlistesi'));  
 		}
-		
+
 	}
 	public function oneri_sil($id)
 	{

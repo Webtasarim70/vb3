@@ -16,6 +16,7 @@ class Panel_model extends CI_Model {
         $result = $this->db->where($where)->get($table_name)->row();
         return $result;
     }
+
     public function getvideourl($where){
         $result = $this->db->where($where)->get('videolar')->row()->video_url;
         return $result;
@@ -104,6 +105,12 @@ public function KategoriListesi($id = 0) {
     public function ustkat($id){
     
     $result = $this->db->where('ana_kategori_id',$id)->get('kategori')->row()->kategori_adi;
+    return $result;
+}
+
+ public function kat($id){
+    
+    $result = $this->db->where('kategori_id',$id)->get('kategori')->row()->kategori_adi;
     return $result;
 }
 

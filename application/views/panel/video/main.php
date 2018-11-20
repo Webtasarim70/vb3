@@ -35,25 +35,27 @@
               <th>Video Url</th>
               <th>Video Sahibi</th>
               <th>Kategori</th>
+              <th>Önce Çıkar</th>
               <th>Durum</th>
               <th>İşlemler</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <?php foreach ($list as $row ){ ?>
-                <td><?php echo $row->video_id; ?></td>
+              <?php $say=1; foreach ($list as $row ){ ?>
+                <td><?php echo $say++; ?></td>
                 <td><img style="width: 100px" src="<?php echo $row->video_resim;?>"></td>
                 <td><?php echo word_limiter($row->video_baslik,5) ; ?></td>
                 <td><?php echo $row->video_url; ?></td>
                 <td><?php echo $row->video_sahibi; ?></td>
-                <td><?php echo $row->video_kat; ?></td>
+                <td> <?php echo $kat=$this->Panel_model->kat($row->video_kat); ?></td>
+                <td><?php echo $row->video_tavsiye; ?></td>
                 <td>
-                    <input class="toggle_check" data-toggle="toggle" data-size="small" data-on="Aktif" data-onstyle="primary"  data-off="Pasif" data-offstyle="danger" type="checkbox"
-                    dataID="<?php echo $row->video_id; ?>"
-                    dataURL="<?php echo base_url('panel/durum')?>"
-                    <?php echo ($row->video_durum == 1) ? 'checked': ''; ?>
-                    >
+                  <input class="toggle_check" data-toggle="toggle" data-size="small" data-on="Aktif" data-onstyle="primary"  data-off="Pasif" data-offstyle="danger" type="checkbox"
+                  dataID="<?php echo $row->video_id; ?>"
+                  dataURL="<?php echo base_url('panel/durum')?>"
+                  <?php echo ($row->video_durum == 1) ? 'checked': ''; ?>
+                  >
                 </td>
                 <td><a href="<?php echo base_url('panel/video_form/'); echo $row->video_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
                   <a href="<?php echo base_url('panel/delete/'); echo $row->video_id; ?>" class="btn btn-danger btn-sm"> Sil </a>
@@ -61,27 +63,28 @@
 
 
                 </td>
-                </tr>
-              <?php } ?>               
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>#</th>
-                <th>Video Resim</th>
-                <th>Video Başlık</th>
-                <th>Video Url</th>
-                <th>Video Sahibi</th>
-                <th>Kategori</th>
-                <th>Durum</th>
-                <th>İşlemler</th>
               </tr>
-            </tfoot>
-          </table>
-        </div>
-        <!-- /.box-body -->
+            <?php } ?>               
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>#</th>
+              <th>Video Resim</th>
+              <th>Video Başlık</th>
+              <th>Video Url</th>
+              <th>Video Sahibi</th>
+              <th>Kategori</th>
+              <th>Önce Çıkar</th>
+              <th>Durum</th>
+              <th>İşlemler</th>
+            </tr>
+          </tfoot>
+        </table>
       </div>
+      <!-- /.box-body -->
+    </div>
 
-    </section>
-    <!-- /.content -->
-  </div>
+  </section>
+  <!-- /.content -->
+</div>
 <!-- /.content-wrapper -->

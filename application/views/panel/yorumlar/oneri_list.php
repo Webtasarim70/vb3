@@ -41,8 +41,8 @@
            </thead>
            <tbody>
             <tr>
-              <?php foreach ($list as $row ){ ?>
-                <td><?php echo $row->oneri_id; ?></td>
+              <?php $say=1; foreach ($list as $row ){ ?>
+                <td><?php echo $say++; ?></td>
                 <td><?php echo $row->oneri_isim; ?></td>
                 <td><?php echo $row->oneri_posta; ?></td>
                 <td><?php echo $row->oneri_video; ?></td>

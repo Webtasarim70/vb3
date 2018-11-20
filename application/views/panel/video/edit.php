@@ -51,10 +51,10 @@
                 <?php
                 if ($list->video_durum==1){
                   echo '<option value="1" selected>Onaylı  </option>  
-                  <option value="2">Onay Bekliyor  </option>';
+                  <option value="0">Onay Bekliyor  </option>';
                 }else{
                   echo '<option value="1">Onaylı  </option>  
-                  <option value="2" selected>Onay Bekliyor  </option>';
+                  <option value="0" selected>Onay Bekliyor  </option>';
                 }
                 ?>
               </select>
@@ -73,17 +73,23 @@
               ?>
             </select>
           </div>
+          <div class="form-group">
+           <label for="kategori">Video Kategorisi</label>
+           <select name="kategori" class="form-control">
+            <?php $this->Panel_model->selectBoxKategori(); ?>
+          </select>
         </div>
-        <!-- /.box-body -->
+      </div>
+      <!-- /.box-body -->
 
-        <div class="box-footer">
-          <button type="submit" class="btn btn-primary pull-right">GÜncelle!</button>
-        </div>
-      </form>
-    </div>
-    <!-- /.box -->
+      <div class="box-footer">
+        <button type="submit" class="btn btn-primary pull-right">GÜncelle!</button>
+      </div>
+    </form>
   </div>
-  <!-- /.row -->
+  <!-- /.box -->
+</div>
+<!-- /.row -->
 </section>
 
 

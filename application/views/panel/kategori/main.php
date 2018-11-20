@@ -39,8 +39,8 @@
         </thead>
         <tbody>
           <tr>
-            <?php foreach ($list as $row ){ ?>
-              <td><?php echo $row->kategori_id; ?></td>
+            <?php $say=1; foreach ($list as $row ){ ?>
+              <td><?php echo $say++; ?></td>
               <td><?php echo $row->kategori_adi; ?></td>
              <!--  <td><?php echo $row->ana_kategori_id; ?></td> -->
               <td><?php echo $this->Panel_model->ustkat($row->ana_kategori_id); ?></td>
