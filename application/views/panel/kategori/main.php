@@ -42,32 +42,40 @@
             <?php $say=1; foreach ($list as $row ){ ?>
               <td><?php echo $say++; ?></td>
               <td><?php echo $row->kategori_adi; ?></td>
-             <!--  <td><?php echo $row->ana_kategori_id; ?></td> -->
+              <!--  <td><?php echo $row->ana_kategori_id; ?></td> -->
               <td><?php echo $this->Panel_model->ustkat($row->ana_kategori_id); ?></td>
 
               <td><?php echo $row->kategori_aciklama; ?></td>
-              <td><?php echo $row->kategori_durum; ?></td>
-              <td><a href="<?php echo base_url('panel/kategori_form/'); echo $row->kategori_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
-                <a href="<?php echo base_url('panel/kategorisil/'); echo $row->kategori_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
-              </tr>
-            <?php } ?>               
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>#</th>
-              <th>Kategori Adı</th>
-              <th>Varsa Üst Kategorisi Adı</th>
-              <th>Kategori Açıklama</th>
-              <th>Kategori Durum</th>
-              <th>İşlemler</th>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <!-- /.box-body -->
-    </div>
+              <td>
 
-  </section>
-  <!-- /.content -->
+              <input class="toggle_check" data-toggle="toggle" data-size="small" data-on="Aktif" data-onstyle="primary"  data-off="Pasif" data-offstyle="danger" type="checkbox"
+              dataID="<?php echo $row->kategori_id; ?>"
+              dataURL="<?php echo base_url('panel/durum/kategori/kategori_id/kategori_durum')?>"
+              <?php echo ($row->kategori_durum == 1) ? 'checked': ''; ?>
+              >
+
+            </td>
+            <td><a href="<?php echo base_url('panel/kategori_form/'); echo $row->kategori_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
+              <a href="<?php echo base_url('panel/kategorisil/'); echo $row->kategori_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
+            </tr>
+          <?php } ?>               
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Varsa Üst Kategorisi Adı</th>
+            <th>Kategori Açıklama</th>
+            <th>Kategori Durum</th>
+            <th>İşlemler</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

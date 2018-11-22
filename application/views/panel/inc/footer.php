@@ -42,6 +42,24 @@
           var base_url    = $(this).attr('dataURL');
           $.post(base_url, {id: id, durum: durum}, function(response){});
       })
+       $('.toggle_check2').change(function() {
+          var durum       = $(this).prop('checked');
+          var id          = $(this).attr('dataID');
+          var base_url    = $(this).attr('dataURL');
+          $.post(base_url, {id: id, durum: durum}, function(response){});
+      })
+       $('.toggle_check3').change(function() {
+          var durum       = $(this).prop('checked');
+          var id          = $(this).attr('dataID');
+          var base_url    = $(this).attr('dataURL');
+          $.post(base_url, {id: id, durum: durum}, function(response){});
+      })
+       $('.toggle_check4').change(function() {
+          var durum       = $(this).prop('checked');
+          var id          = $(this).attr('dataID');
+          var base_url    = $(this).attr('dataURL');
+          $.post(base_url, {id: id, durum: durum}, function(response){});
+      })
     $('#example1').DataTable();
     $('#example2').DataTable({
       'paging'      : true,

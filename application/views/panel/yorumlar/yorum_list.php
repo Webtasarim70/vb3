@@ -56,7 +56,13 @@
               <td><?php echo $row->yorum_eposta; ?></td>
               <td><?php echo $row->yorum_website; ?></td>
               <td><?php echo $row->yorum_icerik; ?></td>
-              <td><?php echo $row->yorum_durum; ?></td>
+              <td>
+                <input class="toggle_check" data-toggle="toggle" data-size="small" data-on="Aktif" data-onstyle="primary"  data-off="Pasif" data-offstyle="danger" type="checkbox"
+                dataID="<?php echo $row->yorum_id; ?>"
+                dataURL="<?php echo base_url('panel/durum/yorumlar/yorum_id/yorum_durum')?>"
+                <?php echo ($row->yorum_durum == 1) ? 'checked': ''; ?>
+                >
+              </td>
 
               <td>
                 <a href="<?php echo base_url('panel/yorum_sil/'); echo $row->yorum_id; ?>" class="btn btn-danger btn-sm"> Sil </a>

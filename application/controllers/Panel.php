@@ -721,7 +721,16 @@ class Panel extends CI_Controller {
 	}
 
 
-	public function durum(){
+	public function durum($tablo, $sutun,  $deger){
+
+		$id= $this->input->post('id');
+		$durum = ($this->input->post('durum')== "true") ? 1 : 0;
+
+		$this->db->where($sutun, $id)->update($tablo, array($deger => $durum));
+
+	}
+
+	public function durumyedek(){
 
 		$id= $this->input->post('id');
 		$durum = ($this->input->post('durum')== "true") ? 1 : 0;
@@ -729,10 +738,6 @@ class Panel extends CI_Controller {
 		$this->db->where('video_id', $id)->update('videolar', array('video_durum' => $durum));
 
 	}
-
-
-
-
 
 
 
