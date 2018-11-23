@@ -8,7 +8,7 @@
 			<div class="col-md-6">
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php $video=$tavsiyeler[0];  echo $video->video_kat?> </span>
+						<span><?php $video=$tavsiyeler[0];  echo $this->Vb_model->kategori($video->video_kat);   ?> </span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
@@ -26,7 +26,7 @@
 			<div class="col-md-3">
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php $video=$tavsiyeler[1];  echo $video->video_kat?></span>
+						<span><?php $video=$tavsiyeler[1];  echo $this->Vb_model->kategori($video->video_kat);?></span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php $video=$tavsiyeler[2];  echo $video->video_kat?></span>
+						<span><?php $video=$tavsiyeler[2];  echo $this->Vb_model->kategori($video->video_kat); ?></span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
@@ -50,7 +50,7 @@
 			<div class="col-md-3">
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php $video=$tavsiyeler[3];  echo $video->video_kat?></span>
+						<span><?php $video=$tavsiyeler[3];  echo $this->Vb_model->kategori($video->video_kat);?></span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php $video=$tavsiyeler[4];  echo $video->video_kat?></span>
+						<span><?php $video=$tavsiyeler[4];  echo $this->Vb_model->kategori($video->video_kat);?></span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>

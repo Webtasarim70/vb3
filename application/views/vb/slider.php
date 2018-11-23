@@ -8,7 +8,7 @@
 			<div class="item">
 				<div class="zoom-container">
 					<div class="zoom-caption">
-						<span><?php echo $row->video_kat; ?></span>
+						<span><?php echo $this->Vb_model->kategori($row->video_kat); ?></span>
 						<a href="single.html">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>

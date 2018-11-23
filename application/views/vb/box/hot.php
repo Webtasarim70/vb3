@@ -1,116 +1,60 @@
 <!-- hot -->
 
 <div class="box">
-			<div class="box-header">
-				<h2><i class="fa fa-globe"></i> Hot Videos</h2>
-			</div>
-			<div class="box-content">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="wrap-vid">
-							<div class="zoom-container">
-								<div class="zoom-caption">
-									<span>Video's Tag</span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-									</a>
-									<p>Video's Name</p>
-								</div>
-								<img src="<?php echo base_url('assets/zKoolTube/'); ?>images/9.jpg" />
-							</div>
-							<h3 class="vid-name"><a href="#">Video's Name</a></h3>
-							<div class="info">
-								<h5>By <a href="#">Kelvin</a></h5>
-								<span><i class="fa fa-calendar"></i>25/3/2015</span> 
-								<span><i class="fa fa-heart"></i>1,200</span>
-							</div>
-						</div>
-						<p class="more">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</p>
-						<a href="single.html" class="btn btn-1">Read More</a>
+	<div class="box-header">
+		<h2><i class="fa fa-globe"></i> Çok İzlenen Videolar</h2>
+	</div>
+	<div class="box-content">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="wrap-vid">
+					<div class="zoom-container">
+						<div class="zoom-caption">
+							<span><?php $video=$sicaklar[0]; echo $this->Vb_model->kategori($video->video_kat); ?></span>
+							<a href="single.html">
+								<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+							</a>
+<!-- 							<p></p>
+ -->						</div>
+						<img src="<?php echo $video->video_resim; ?>" />
 					</div>
-					<div class="col-md-6">
-						<div class="post wrap-vid">
-							<div class="zoom-container">
-								<div class="zoom-caption">
-									<span>Video's Tag</span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-									</a>
-									<p>Video's Name</p>
-								</div>
-								<img src="<?php echo base_url('assets/zKoolTube/'); ?>images/4.jpg" />
-							</div>
-							<div class="wrapper">
-								<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-								<div class="info">
-									<h6>By <a href="#">Kelvin</a></h6>
-									<span><i class="fa fa-calendar"></i>25/3/2015</span> 
-									<span><i class="fa fa-heart"></i>1,200</span>
-								</div>
-							</div>
-						</div>
-						<div class="post wrap-vid">
-							<div class="zoom-container">
-								<div class="zoom-caption">
-									<span>Video's Tag</span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-									</a>
-									<p>Video's Name</p>
-								</div>
-								<img src="<?php echo base_url('assets/zKoolTube/'); ?>images/5.jpg" />
-							</div>
-							<div class="wrapper">
-								<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-								<div class="info">
-									<h6>By <a href="#">Kelvin</a></h6>
-									<span><i class="fa fa-calendar"></i>25/3/2015</span> 
-									<span><i class="fa fa-heart"></i>1,200</span>
-								</div>
-							</div>
-						</div>
-						<div class="post wrap-vid">
-							<div class="zoom-container">
-								<div class="zoom-caption">
-									<span>Video's Tag</span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-									</a>
-									<p>Video's Name</p>
-								</div>
-								<img src="<?php echo base_url('assets/zKoolTube/'); ?>images/6.jpg" />
-							</div>
-							<div class="wrapper">
-								<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-								<div class="info">
-									<h6>By <a href="#">Kelvin</a></h6>
-									<span><i class="fa fa-calendar"></i>25/3/2015</span> 
-									<span><i class="fa fa-heart"></i>1,200</span>
-								</div>
-							</div>
-						</div>
-						<div class="post wrap-vid">
-							<div class="zoom-container">
-								<div class="zoom-caption">
-									<span>Video's Tag</span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-									</a>
-									<p>Video's Name</p>
-								</div>
-								<img src="<?php echo base_url('assets/zKoolTube/'); ?>images/7.jpg" />
-							</div>
-							<div class="wrapper">
-								<h5 class="vid-name"><a href="#">Video's Name</a></h5>
-								<div class="info">
-									<h6>By <a href="#">Kelvin</a></h6>
-									<span><i class="fa fa-calendar"></i>25/3/2015</span> 
-									<span><i class="fa fa-heart"></i>1,200</span>
-								</div>
-							</div>
-						</div>
+					<h3 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
+					<div class="info">
+						<h5>By <a href="#"><?php echo $video->video_sahibi;?></a></h5>
+						<span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span> 
+						<span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
 					</div>
 				</div>
+				<p class="more"><?php echo word_limiter($video->video_aciklama,20);?>?></p>
+				<a href="single.html" class="btn btn-1">devamı..</a>
 			</div>
-			<div class="line"></div>
+
+			<div class="col-md-6">
+
+				<?php for ($i=1; $i < 5; $i++) { ?>
+					<div class="post wrap-vid">
+						<div class="zoom-container">
+							<div class="zoom-caption">
+								<span><?$video=$sicaklar[$i]; echo $this->Vb_model->kategori($video->video_kat); ?></span>
+								<a href="single.html">
+									<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+								</a>
+								<!-- <p>Video's Name</p> -->
+							</div>
+							<img src="<?php echo $video->video_resim; ?>" />
+						</div>
+						<div class="wrapper">
+							<h5 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,3);?></a></h5>
+							<div class="info">
+								<h6>By <a href="#"><?php echo $video->video_sahibi;?></a></h6>
+								<span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span> 
+								<span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
 		</div>
+	</div>
+	<div class="line"></div>
+</div>

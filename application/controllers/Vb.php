@@ -18,11 +18,12 @@ class Vb extends CI_Controller {
 		//videolar
 		$videolar=$this->Vb_model->get_all('videolar','video_id');
 		$slider=$this->Vb_model->get_where('videolar',array('video_durum' =>1 ,'video_slider'=>1 ) ,'video_eklemetarihi');
-		$tavsiyeler=$this->Vb_model->get_where('videolar',array('video_durum' =>1 ,'video_tavsiye'=>1 ) ,'video_eklemetarihi');
+		$tavsiyeler=$this->Vb_model->get_where('videolar',array('video_durum' =>1, 'video_tavsiye'=>1 ) ,'video_eklemetarihi');
 		$onecikan;
-		$rastgele;
-		$sicaklar;
-		$yeniler;
+		$rastgele=$this->Vb_model->rastgele('videolar',array('video_durum' =>1) ,'video_eklemetarihi');
+		$sicaklar=$this->Vb_model->get_where('videolar',array('video_durum' =>1, 'video_tavsiye'=>1 ) ,'video_goruntulenme');
+		$yeniler=$this->Vb_model->limitli('videolar', 
+			array('video_durum' =>1) , 'video_eklemetarihi', 3, 1);
 
 		$menuler;
 		$sosyalmenu;
@@ -35,6 +36,12 @@ class Vb extends CI_Controller {
 		$viewData['videolar']=$videolar;
 		$viewData['slider']=$slider;
 		$viewData['tavsiyeler']=$tavsiyeler;
+		$viewData['yeniler']=$yeniler;
+		$viewData['rastgele']=$rastgele;
+		$viewData['sicaklar']=$sicaklar;
+
+
+
 
 
 		$this->load->view('vb/index', $viewData);
