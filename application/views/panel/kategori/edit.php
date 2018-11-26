@@ -42,6 +42,8 @@
                                 <input type="text" class="form-control" name="kategori_aciklama" value="<?php echo $list->kategori_aciklama ?>" >
                             </div>
                             <button type="submit" class="btn btn-primary pull-right">Düzenle!</button>
+
+                        </div>
                         </div>
 
                 </div>

@@ -337,6 +337,7 @@ class Panel extends CI_Controller {
 				'ana_kategori_id'        => $ustkategori,
 				'kategori_aciklama'		 =>$kategoriaciklama,
 				'kategori_durum'		 =>1
+
 			);	
 
 			$insert=$this->Panel_model->insert($data,'kategori');
@@ -414,6 +415,8 @@ class Panel extends CI_Controller {
 
 
 
+
+
 			$where = array('kategori_id' => $id);
 			$data =array(
 				'kategori_adi'       => $kategori_adi,
@@ -444,6 +447,86 @@ class Panel extends CI_Controller {
 
 		}
 	}
+    public function kategorionecikar()
+    {
+        $login=$this->session->userdata('user');
+        if (!$login) {
+            $this->load->view('panel/login');
+        }else{
+            $this->load->view('panel/kategori_onecikar');
+        }
+    }
+    public function kategoritavsiye(){
+
+	    $secilen1= $this->input->post('tavsiye1');
+	    $secilen2 = $this->input->post('tavsiye2');
+
+
+
+        $where = array('kategori_id' => $secilen1);
+        $where2 = array('kategori_id' => $secilen2);
+
+        $data =array(
+            'kategori_tavsiye' => 1
+
+        );
+        $data2 =array(
+            'kategori_tavsiye' => 2
+
+        );
+
+        $sifirla=$this->db->update('kategori',array('kategori_tavsiye'=>0));
+        $update=$this->Panel_model->update($where, $data, 'kategori');
+        $update2=$this->Panel_model->update($where2, $data2, 'kategori');
+        if ($update | $update2){
+            $alert = array(
+                'title'   => 'İşlem Başarılıdır',
+                'message' => 'Güncelleme Başarılıdır..',
+                'icon'    =>'check',
+                'type'      =>'success'
+            );
+
+        } else{
+            $alert = array(
+                'title'    => 'İşlem Başarısız',
+                'message'  => 'Güncelleme Yapılmadı',
+                'icon'     =>'ban',
+                'type'     =>'danger'
+            );
+        }
+
+        $this->session->set_flashdata('alert', $alert);
+        redirect(base_url('panel/kategori'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 		public function ayar_form(){
 		$login=$this->session->userdata('user');

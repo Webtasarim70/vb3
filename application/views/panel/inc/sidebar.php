@@ -39,9 +39,6 @@
           <li><a href="<?php echo base_url('panel/yonetici');?>"><i class="fa fa-circle-o"></i> Yönetici Listesi</a></li>
           <li><a href="<?php echo base_url('panel/yonetici_ekleform');?>"><i class="fa fa-circle-o"></i> Yeni Yönetici </a></li>
 
-
-
-
         </ul>
       </li>
 
@@ -56,6 +53,7 @@
          <li><a href="<?php echo base_url('');?>panel/kategoriekleform"><i class="fa fa-circle-o"></i> Kategori Ekle</a></li>
          <li><a href="<?php echo base_url('');?>panel/kategori"><i class="fa fa-circle-o"></i> Kategori Listesi</a></li>
          <li><a href="<?php echo base_url('');?>panel/kategorii"><i class="fa fa-circle-o"></i> Kategori Ağaçı</a></li>
+         <li><a href="<?php echo base_url('');?>panel/kategorionecikar"><i class="fa fa-circle-o"></i> Kategori Onecikar</a></li>
        </ul>
      </li>
      <li class="treeview">

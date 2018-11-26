@@ -1,8 +1,7 @@
 <div class="row">
 	<div id="main-content" class="col-md-8">
-		
 		<!-- box1 -->
-		<?php $this->load->view('vb/box/featured'); ?>
+		<?php  $this->load->view('vb/box/featured'); ?>
 
 		<!-- box2 -->
 		<?php $this->load->view('vb/box/random'); ?>

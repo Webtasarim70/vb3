@@ -20,7 +20,7 @@
 					<h3 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
 					<div class="info">
 						<h5>By <a href="#"><?php echo $video->video_sahibi;?></a></h5>
-						<span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span> 
+						<span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span>
 						<span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
 					</div>
 				</div>

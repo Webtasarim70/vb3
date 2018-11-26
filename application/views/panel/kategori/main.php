@@ -12,6 +12,7 @@
         <li class="active">Kategori Listesi</li>
       </ol>
     </section>
+
     <?php
     $alert = $this->session->userdata('alert');
     if ($alert){ ?>
@@ -26,7 +27,7 @@
     <!-- Main content -->
     <section class="content">
      <div class="box">
-      <table id="example1" class="table table-bordered table-striped">
+          <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -55,6 +56,7 @@
                 >
 
               </td>
+
               <td><a href="<?php echo base_url('panel/kategori_form/'); echo $row->kategori_id; ?>" class="btn btn-primary btn-sm"> Düzenle </a>
                 <a href="<?php echo base_url('panel/kategorisil/'); echo $row->kategori_id; ?>" class="btn btn-danger btn-sm"> Sil </a></td>
               </tr>
@@ -72,8 +74,11 @@
           </tfoot>
         </table>
       </div>
+      </section>
       <!-- /.box-body -->
-    </section>
+    </div>
+
+    
     <!-- /.content -->
   </div>
 <!-- /.content-wrapper -->
