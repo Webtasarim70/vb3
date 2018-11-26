@@ -30,3 +30,27 @@ function sef_link($str){
         }else{
             
         }
+
+
+        Eğer projenizde tarih alanını göstermek istiyorsanız ve veri tabanında veriniz “2017-01-25 17:45:25” şeklinde geliyorsa bunu 25/01/2017 şeklinde göstermek istiyorsanız aşağıdaki yöntemi de uygulayabilirsiniz.
+
+Eğer tek bir haber verisi geliyorsa tarih gösterme aşağıdaki gibi olur
+
+<?php 
+        if($news[0]->createdate !=null){
+	$newDate = date("d/m/Y", strtotime($news[0]->createdate));
+	?>
+	<i><?php echo $newDate ?></i>
+
+<?php } ?>
+
+
+Eğer for döngüsüyle veri geliyorsa tarih gösterme aşağıdaki gibi olacaktır.
+<?php 
+        if($value->createdate !=null){
+         $newDate = date("d/m/Y", strtotime($value->createdate));
+         ?>
+	<i><?php echo $newDate ?></i>
+
+<?php } ?>
+

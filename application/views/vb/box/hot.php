@@ -14,8 +14,7 @@
 							<a href="single.html">
 								<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 							</a>
-<!-- 							<p></p>
- -->						</div>
+						</div>
 						<img src="<?php echo $video->video_resim; ?>" />
 					</div>
 					<h3 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
