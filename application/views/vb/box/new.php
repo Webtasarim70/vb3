@@ -15,16 +15,16 @@
 						<div class="zoom-container">
 							<div class="zoom-caption">
 								<span><?php echo $this->Vb_model->kategori($row->video_kat); ?> </span>
-								<a href="single.html">
+								<a href="<?php echo base_url('vb/izle/').$row->video_url;?>">
 									<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 								</a>
 								<p></p>
 							</div>
 							<img src="<?php echo $row->video_resim; ?>" />
 						</div>
-						<h3 class="vid-name"><a href="#"><?php echo word_limiter($row->video_baslik,5);?></a></h3>
+						<h3 class="vid-name"><a href="<?php echo base_url('vb/izle/').$row->video_url;?>"><?php echo word_limiter($row->video_baslik,5);?></a></h3>
 						<div class="info">
-							<h5>By <a href="#"><?php echo $row->video_sahibi?></a></h5>
+							<h5>By <a href="<?php echo base_url('vb/izle/').$row->video_url;?>"><?php echo $row->video_sahibi?></a></h5>
 							<span><i class="fa fa-calendar"></i><?php echo $row->video_eklemetarihi; ?></span> 
 							<span><i class="fa fa-eye"></i><?php echo $row->video_goruntulenme?></span>
 						</div>

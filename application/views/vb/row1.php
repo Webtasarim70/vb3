@@ -9,7 +9,7 @@
 				<div class="zoom-container">
 					<div class="zoom-caption">
 						<span><?php $video=$tavsiyeler[0];  echo $this->Vb_model->kategori($video->video_kat);   ?> </span>
-						<a href="single.html">
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
 						<p><small> <?php  echo word_limiter($video->video_baslik,8);?></small></p>
@@ -27,7 +27,7 @@
 				<div class="zoom-container">
 					<div class="zoom-caption">
 						<span><?php $video=$tavsiyeler[1];  echo $this->Vb_model->kategori($video->video_kat);?></span>
-						<a href="single.html">
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
 						<p><small> <?php echo word_limiter($video->video_baslik,5);?></small></p>
@@ -37,7 +37,7 @@
 				<div class="zoom-container">
 					<div class="zoom-caption">
 						<span><?php $video=$tavsiyeler[2];  echo $this->Vb_model->kategori($video->video_kat); ?></span>
-						<a href="single.html">
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
 						<p><small> <?php echo word_limiter($video->video_baslik,5);?></small></p>
@@ -51,7 +51,7 @@
 				<div class="zoom-container">
 					<div class="zoom-caption">
 						<span><?php $video=$tavsiyeler[3];  echo $this->Vb_model->kategori($video->video_kat);?></span>
-						<a href="single.html">
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
 						<p><small> <?php echo word_limiter($video->video_baslik,5);?></small></p>
@@ -61,7 +61,7 @@
 				<div class="zoom-container">
 					<div class="zoom-caption">
 						<span><?php $video=$tavsiyeler[4];  echo $this->Vb_model->kategori($video->video_kat);?></span>
-						<a href="single.html">
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
 							<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
 						</a>
 						<p><small> <?php echo word_limiter($video->video_baslik,5);?></small></p>

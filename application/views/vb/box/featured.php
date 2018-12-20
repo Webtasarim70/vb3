@@ -13,22 +13,22 @@
 							<div class="zoom-container">
 								<div class="zoom-caption">
 									<span><?php $video=$tavsiye1[0]; echo $this->Vb_model->kategori($video->video_kat); ?></span>
-									<a href="single.html">
-										<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+									<a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
+										<i class="fa fa-play-circle-o fa-5x" style="color: <?php echo base_url('vb/izle/').$video->video_url;?>fff"></i>
 									</a>
 								</div>
 								<img src="<?php echo $video->video_resim; ?>" />
 							</div>
-							<h3 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
+							<h3 class="vid-name"><a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
 							<div class="info">
-								<h5>By <a href="#"><?php echo $video->video_sahibi;?></a></h5>
+								<h5>By <a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php echo $video->video_sahibi;?></a></h5>
 								<span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span>
 								<span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
 							</div>
 						</div>
 						<p class="more">
                             <?php echo word_limiter($video->video_aciklama,10);?>
-						<a href="single.html" class="btn btn-1">Devamı</a>
+						<a href="<?php echo base_url('vb/izle/').$video->video_url;?>" class="btn btn-1">Devamı</a>
 						<div class="line"></div>
 
                         <!--ufak-->
@@ -47,16 +47,16 @@
                                 <div class="zoom-container">
                                     <div class="zoom-caption">
                                         <span><?php $video=$tavsiye1[$i];  echo $this->Vb_model->kategori($video->video_kat); ?></span>
-                                        <a href="single.html">
-                                            <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                                        <a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
+                                            <i class="fa fa-play-circle-o fa-5x" style="color: <?php echo base_url('vb/izle/').$video->video_url;?>fff"></i>
                                         </a>
                                     </div>
                                     <img src="<?php echo $video->video_resim; ?>" />
                                 </div>
                                 <div class="wrapper">
-                                    <h5 class="vid-name"><a href="#"><?php  echo word_limiter($video->video_baslik,3);?></a></h5>
+                                    <h5 class="vid-name"><a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php  echo word_limiter($video->video_baslik,3);?></a></h5>
                                     <div class="info">
-                                        <h6>By <a href="#"><?php  echo $video->video_sahibi;?></a></h6>
+                                        <h6>By <a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php  echo $video->video_sahibi;?></a></h6>
                                         <span><i class="fa fa-calendar"></i><?php  echo $video->video_eklemetarihi; ?></span>
                                         <span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
                                     </div>
@@ -77,22 +77,22 @@
                             <div class="zoom-container">
                                 <div class="zoom-caption">
                                     <span><?php $video=$tavsiye2[0]; echo $this->Vb_model->kategori($video->video_kat); ?></span>
-                                    <a href="single.html">
-                                        <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                                    <a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
+                                        <i class="fa fa-play-circle-o fa-5x" style="color: <?php echo base_url('vb/izle/').$video->video_url;?>fff"></i>
                                     </a>
                                 </div>
                                 <img src="<?php echo $video->video_resim; ?>" />
                             </div>
-                            <h3 class="vid-name"><a href="#"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
+                            <h3 class="vid-name"><a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php echo word_limiter($video->video_baslik,5);?></a></h3>
                             <div class="info">
-                                <h5>By <a href="#"><?php echo $video->video_sahibi;?></a></h5>
+                                <h5>By <a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php echo $video->video_sahibi;?></a></h5>
                                 <span><i class="fa fa-calendar"></i><?php echo $video->video_eklemetarihi; ?></span>
                                 <span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
                             </div>
                         </div>
                         <p class="more">
                             <?php echo word_limiter($video->video_aciklama,10);?>
-                            <a href="single.html" class="btn btn-1">Devamı</a>
+                            <a href="<?php echo base_url('vb/izle/').$video->video_url;?>" class="btn btn-1">Devamı</a>
                         <div class="line"></div>
 
 
@@ -114,16 +114,16 @@
                                 <div class="zoom-container">
                                     <div class="zoom-caption">
                                         <span><?php $video=$tavsiye2[$i];  echo $this->Vb_model->kategori($video->video_kat); ?></span>
-                                        <a href="single.html">
-                                            <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                                        <a href="<?php echo base_url('vb/izle/').$video->video_url;?>">
+                                            <i class="fa fa-play-circle-o fa-5x" style="color: <?php echo base_url('vb/izle/').$video->video_url;?>fff"></i>
                                         </a>
                                     </div>
                                     <img src="<?php echo $video->video_resim; ?>" />
                                 </div>
                                 <div class="wrapper">
-                                    <h5 class="vid-name"><a href="#"><?php  echo word_limiter($video->video_baslik,3);?></a></h5>
+                                    <h5 class="vid-name"><a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php  echo word_limiter($video->video_baslik,3);?></a></h5>
                                     <div class="info">
-                                        <h6>By <a href="#"><?php  echo $video->video_sahibi;?></a></h6>
+                                        <h6>By <a href="<?php echo base_url('vb/izle/').$video->video_url;?>"><?php  echo $video->video_sahibi;?></a></h6>
                                         <span><i class="fa fa-calendar"></i><?php  echo $video->video_eklemetarihi; ?></span>
                                         <span><i class="fa fa-eye"></i><?php echo $video->video_goruntulenme?></span>
                                     </div>

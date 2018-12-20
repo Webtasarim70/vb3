@@ -25,8 +25,8 @@ class Vb extends CI_Controller {
 			array('video_durum' =>1) , 'video_eklemetarihi', 3, 1);
 		$onecikarilankategori1 =$this->Vb_model->kat_id(array('kategori_durum' =>1, 'kategori_tavsiye'=>1 ));
 		$onecikarilankategori2 =$this->Vb_model->kat_id(array('kategori_durum' =>1, 'kategori_tavsiye'=>2 ));
-        $tavsiyekategori1=$this->Vb_model->get_where('videolar', array('video_durum' =>1, 'video_kat'=>$onecikarilankategori1) , 'video_goruntulenme');
-        $tavsiyekategori2=$this->Vb_model->get_where('videolar', array('video_durum' =>1, 'video_kat'=>$onecikarilankategori2) , 'video_goruntulenme');
+		$tavsiyekategori1=$this->Vb_model->get_where('videolar', array('video_durum' =>1, 'video_kat'=>$onecikarilankategori1) , 'video_goruntulenme');
+		$tavsiyekategori2=$this->Vb_model->get_where('videolar', array('video_durum' =>1, 'video_kat'=>$onecikarilankategori2) , 'video_goruntulenme');
 
 		$menuler;
 		$sosyalmenu;
@@ -42,18 +42,36 @@ class Vb extends CI_Controller {
 		$viewData['yeniler']=$yeniler;
 		$viewData['rastgele']=$rastgele;
 		$viewData['sicaklar']=$sicaklar;
-        $viewData['tavsiye1']=$tavsiyekategori1;
-        $viewData['tavsiye2']=$tavsiyekategori2;
+		$viewData['tavsiye1']=$tavsiyekategori1;
+		$viewData['tavsiye2']=$tavsiyekategori2;
 
 
 
 
 
 
-        $this->load->view('vb/index', $viewData);
+		$this->load->view('vb/index', $viewData);
 		//$this->load->view('vb/index');
 
 	}
 
+	public function izle($id)
+	{
+		$izle= $this->Vb_model->get_row(array('video_url' =>$id),'videolar');
+		$ayarlar= $this->Vb_model->get_row(array('ayar_id' =>1), 'ayarlar');
+		$slider=$this->Vb_model->get_where('videolar',array('video_durum' =>1 ,'video_slider'=>1 ) ,'video_eklemetarihi');
+		$viewData['izle']=$izle;
+		$viewData['slider']=$slider;
+		$viewData['ayarlar']=$ayarlar;
 
+		$this->load->view('vb/izle', $viewData);
+
+	}
+
+	public function ara($kelime)
+	{
+		echo $kelime. " yakinda burada...";
+	}
+
+//
 }
