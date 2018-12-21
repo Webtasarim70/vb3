@@ -87,7 +87,7 @@
 <!-- Footer -->
 
 <!-- JS -->
-<script src="<?php echo base_url('assets/ZKoolTube/'); ?>owl-carousel/owl.carousel.js"></script>
+<script src="<?php echo base_url('assets/zKoolTube/'); ?>owl-carousel/owl.carousel.js"></script>
 <script>
 	$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
